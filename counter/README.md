@@ -54,13 +54,13 @@ Some notes:
 
 ### The Z3 Result ### 
 
-I tested Z3 (Z3 version 4.8.5 - 64 bit) on `wrapper.smt2` and its output is saved in `z3result.txt`. It is a bit hard to understand because the signal names are not there, so I manually map the SMT names to the Verilog names and replace the `bit2bool` function with `[]` for selecting a bit. The `I` and `C` are saved as `I.lisp` and `C.lisp`.
+I tested Z3 (Z3 version 4.8.5 - 64 bit) on `wrapper.smt2` and its output is saved in `z3result.txt`. It is a bit hard to understand because the signal names are not there, so I manually map the SMT names to the Verilog names and replace the `bit2bool` function with `[]` for selecting a bit (so it is not valid SMT format, but I think it is easier to read). The `I` and `C` are saved as `I.lisp` and `C.lisp` separately (calling them `*.lisp` is just to get my text editor render a good syntax highlight).
 
-The simplest solution to `C` should be the solution in the beginning, but it seems that
+The simplest solution to `C` should be the equation in the beginning, but it seems that
 Z3 breaks this into bits and try to find the relation over the bits.
 
-What it found for C can be intepreted here:
+What it found for `C` can be intepreted here:
 `( imp[0] | v[0] ) & ( ~imp[0] | ~v[0] )`  means one and only one of the two is 1
-and it is similar over the 4 bits of the two counters. 
+and it is similar over the 4 bits of the two counters. But what it found for `I` is more difficult to read.
 
 
