@@ -2,8 +2,8 @@
 
 ### The Verilog Design ###
 
-The Verilog design `verilog/opposite.v` is a module with two conunters. 
-The two counter `v` and `imp` are the negation of each other.
+The Verilog design `verilog/opposite.v` is a module with two counters. 
+The two counters `v` and `imp` are the negation (opposite) of each other.
 
 ( `v == 0xf - imp` , or in other words, `v == ~ imp` )
 
