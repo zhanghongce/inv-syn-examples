@@ -1,7 +1,7 @@
 
 /// \brief Counter -- just a counter
 /// with a single instruction:
-/// INC c := c + 1
+/// INC v := v + 1
 class CntTest {
 public:
   static Ila BuildModel();
