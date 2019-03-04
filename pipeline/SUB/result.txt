@@ -1,0 +1,46 @@
+unsat
+(and (forall ((A wrapper_s)) (= (INV2 A) false))
+     (forall ((A pipeline_v_s))
+       (let ((a!1 (or (= (|pipeline_v#27| A) #b1)
+                      (not ((_ bit2bool 1) (|pipeline_v#33| A)))))
+             (a!2 (not (= ((_ extract 0 0) (|pipeline_v#36| A)) #b1)))
+             (a!3 (not (= ((_ extract 0 0) (|pipeline_v#33| A)) #b1)))
+             (a!4 (not (= ((_ extract 0 0) (|pipeline_v#29| A)) #b1)))
+             (a!5 (not (= ((_ extract 1 1) (|pipeline_v#29| A)) #b1)))
+             (a!7 (not (= ((_ extract 1 1) (|pipeline_v#36| A)) #b1))))
+       (let ((a!6 (or a!5 (not (= (|pipeline_v#27| A) (|pipeline_v#24| A))))))
+       (let ((a!8 (and a!1
+                       (= (|pipeline_v#7| A) #x00)
+                       (= (|pipeline_v#28| A) #b00)
+                       (not (= (|pipeline_v#27| A) #b1))
+                       (not (= (|pipeline_v#24| A) #b1))
+                       a!2
+                       a!3
+                       a!4
+                       a!6
+                       a!7)))
+         (= (INV1 A) a!8))))))
+
+------------------------------------------------------------------------------------
+
+(and (forall ((A wrapper_s)) (= (INV2 A) false))
+     (forall ((A pipeline_v_s))
+       (let ((a!1 (or (= id_ex_reg_wen #b1)
+                      (not ((_ bit2bool 1) reg_1_w_stage))))
+             (a!2 (not (= ((_ extract 0 0) reg_0_w_stage) #b1)))
+             (a!3 (not (= ((_ extract 0 0) reg_1_w_stage) #b1)))
+             (a!4 (not (= ((_ extract 0 0) reg_2_w_stage) #b1)))
+             (a!5 (not (= ((_ extract 1 1) reg_2_w_stage) #b1)))
+             (a!7 (not (= ((_ extract 1 1) reg_0_w_stage) #b1))))
+       (let ((a!6 (or a!5 (not (= id_ex_reg_wen ex_wb_reg_wen)))))
+       (let ((a!8 (and a!1
+                       (= registers[1] #x00)
+                       (= reg_3_w_stage #b00)
+                       (not (= id_ex_reg_wen #b1))
+                       (not (= ex_wb_reg_wen #b1))
+                       a!2
+                       a!3
+                       a!4
+                       a!6
+                       a!7)))
+         (= (INV1 A) a!8))))))

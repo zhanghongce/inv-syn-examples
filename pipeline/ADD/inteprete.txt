@@ -1,0 +1,103 @@
+ ~/z3s/bin/z3 wrapper.smt2 
+unsat
+(let ((a!1 (forall ((A pipeline_v_s))
+             (let 
+                   (a!2 (or (= id_ex_op #b11)
+                            (not (= id_ex_reg_wen #b1))
+                            (= id_ex_op #b10)
+                            (= id_ex_op #b01)))
+                   (a!3 (or (not reg_1_w_stage[1])
+                            (not (= id_ex_reg_wen #b0))))
+                   (a!4 (or (not (= ex_wb_reg_wen #b1))
+                            (= reg_0_w_stage[0] #b1)
+                            ex_wb_rd[1]
+                            ex_wb_rd[0]))
+                   (a!5 (or (not reg_0_w_stage[1])
+                            (not (= id_ex_reg_wen #b0))))
+                   (a!6 (or (not reg_0_w_stage[0])
+                            (not (= ex_wb_reg_wen #b0))))
+                   (a!7 (or (not reg_0_w_stage[0])
+                            (not ex_wb_rd[0])))
+                   (a!8 (or (not (= id_ex_rd #b00))
+                            (not (= id_ex_reg_wen #b1))
+                            (= reg_0_w_stage[1] #b1)))
+                   (a!9 (or (not reg_1_w_stage[0])
+                            (not (= ex_wb_reg_wen #b0))))
+                   (a!10 (or (not reg_3_w_stage[1])
+                             (not (= id_ex_reg_wen #b0))))
+                   (a!11 (not (= id_ex_rd[0] #b1)))
+                   (a!12 (not (= reg_3_w_stage[1] #b0)))
+                   (a!14 (or (= id_ex_reg_wen #b1)
+                             (not reg_2_w_stage[1])))
+                   (a!16 (or reg_1_w_stage[1]
+                             (not reg_0_w_stage[0])
+                             (= reg_1_w_stage #b00)))
+                   (a!17 (not (= id_ex_rd[1] #b1)))
+                   (a!20 (or (not reg_1_w_stage[0])
+                             (not reg_2_w_stage[0])))
+                   (a!21 (or (= reg_1_w_stage[0] #b1)
+                             (not (= ex_wb_rd #b01))
+                             (not (= ex_wb_reg_wen #b1))))
+                   (a!22 (or (= reg_2_w_stage[1] #b1)
+                             (not (= id_ex_reg_wen #b1))
+                             (not (= id_ex_rd #b10))))
+                   (a!23 (or (= reg_3_w_stage[0] #b1)
+                             (not (= ex_wb_rd #b11))
+                             (not (= ex_wb_reg_wen #b1))))
+                   (a!24 (or (not reg_3_w_stage[0])
+                             (not (= ex_wb_reg_wen #b0))))
+                   (a!25 (not (= id_ex_op[1] #b1)))
+                   (a!27 (or (not reg_2_w_stage[0])
+                             (not (= ex_wb_reg_wen #b0))))
+                   (a!28 (or (= id_ex_rd[1] #b1)
+                             (not reg_3_w_stage[1])))
+                   (a!29 (or (= reg_2_w_stage[0] #b1)
+                             (not (= ex_wb_rd #b10))
+                             (not (= ex_wb_reg_wen #b1))))
+                   (a!31 (or (not reg_0_w_stage[1])
+                             (not id_ex_rd[1])))
+                   (a!32 (not (= reg_0_w_stage[0] #b1)))
+                   (a!34 (or (= id_ex_rd[1] #b1)
+                             (not reg_2_w_stage[1])))
+             (let ((a!13 (or a!11
+                             (not (= id_ex_reg_wen #b1))
+                             (= reg_1_w_stage[1] #b1)
+                             a!12))
+                   (a!18 (or a!17 (not reg_1_w_stage[1])))
+                   (a!26 (or a!25
+                             (not (= id_ex_reg_wen #b0))
+                             (not (= ex_wb_reg_wen #b1))))
+                   (a!33 (or a!32 (not reg_2_w_stage[0]))))
+               (= (INV1 A)
+                  (and a!1
+                       a!2
+                       a!3
+                       a!4
+                       a!5
+                       a!6
+                       a!7
+                       a!8
+                       a!9
+                       a!10
+                       a!13
+                       a!14
+                       a!15
+                       a!16
+                       a!18
+                       a!19
+                       a!20
+                       a!21
+                       a!22
+                       a!23
+                       a!24
+                       a!26
+                       a!27
+                       a!28
+                       a!29
+                       a!30
+                       a!31
+                       a!33
+                       a!34
+                       (or a!35 a!36))))))))
+  (and (forall ((A wrapper_s)) (= (INV2 A) false)) a!1))
+

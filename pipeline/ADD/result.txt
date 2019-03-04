@@ -1,0 +1,112 @@
+ ~/z3s/bin/z3 wrapper.smt2 
+unsat
+(let ((a!1 (forall ((A pipeline_v_s))
+             (let ((a!1 (or (not ((_ bit2bool 0) (|pipeline_v#29| A)))
+                            (not ((_ bit2bool 0) (|pipeline_v#28| A)))))
+                   (a!2 (or (= (|pipeline_v#17| A) #b11)
+                            (not (= (|pipeline_v#27| A) #b1))
+                            (= (|pipeline_v#17| A) #b10)
+                            (= (|pipeline_v#17| A) #b01)))
+                   (a!3 (or (not ((_ bit2bool 1) (|pipeline_v#33| A)))
+                            (not (= (|pipeline_v#27| A) #b0))))
+                   (a!4 (or (not (= (|pipeline_v#24| A) #b1))
+                            (= ((_ extract 0 0) (|pipeline_v#36| A)) #b1)
+                            ((_ bit2bool 1) (|pipeline_v#23| A))
+                            ((_ bit2bool 0) (|pipeline_v#23| A))))
+                   (a!5 (or (not ((_ bit2bool 1) (|pipeline_v#36| A)))
+                            (not (= (|pipeline_v#27| A) #b0))))
+                   (a!6 (or (not ((_ bit2bool 0) (|pipeline_v#36| A)))
+                            (not (= (|pipeline_v#24| A) #b0))))
+                   (a!7 (or (not ((_ bit2bool 0) (|pipeline_v#36| A)))
+                            (not ((_ bit2bool 0) (|pipeline_v#23| A)))))
+                   (a!8 (or (not (= (|pipeline_v#26| A) #b00))
+                            (not (= (|pipeline_v#27| A) #b1))
+                            (= ((_ extract 1 1) (|pipeline_v#36| A)) #b1)))
+                   (a!9 (or (not ((_ bit2bool 0) (|pipeline_v#33| A)))
+                            (not (= (|pipeline_v#24| A) #b0))))
+                   (a!10 (or (not ((_ bit2bool 1) (|pipeline_v#28| A)))
+                             (not (= (|pipeline_v#27| A) #b0))))
+                   (a!11 (not (= ((_ extract 0 0) (|pipeline_v#26| A)) #b1)))
+                   (a!12 (not (= ((_ extract 1 1) (|pipeline_v#28| A)) #b0)))
+                   (a!14 (or (= (|pipeline_v#27| A) #b1)
+                             (not ((_ bit2bool 1) (|pipeline_v#29| A)))))
+                   (a!15 (or (not ((_ bit2bool 0) (|pipeline_v#36| A)))
+                             (not ((_ bit2bool 0) (|pipeline_v#28| A)))))
+                   (a!16 (or ((_ bit2bool 1) (|pipeline_v#33| A))
+                             (not ((_ bit2bool 0) (|pipeline_v#36| A)))
+                             (= (|pipeline_v#33| A) #b00)))
+                   (a!17 (not (= ((_ extract 1 1) (|pipeline_v#26| A)) #b1)))
+                   (a!19 (or (not ((_ bit2bool 1) (|pipeline_v#36| A)))
+                             (not ((_ bit2bool 1) (|pipeline_v#33| A)))))
+                   (a!20 (or (not ((_ bit2bool 0) (|pipeline_v#33| A)))
+                             (not ((_ bit2bool 0) (|pipeline_v#29| A)))))
+                   (a!21 (or (= ((_ extract 0 0) (|pipeline_v#33| A)) #b1)
+                             (not (= (|pipeline_v#23| A) #b01))
+                             (not (= (|pipeline_v#24| A) #b1))))
+                   (a!22 (or (= ((_ extract 1 1) (|pipeline_v#29| A)) #b1)
+                             (not (= (|pipeline_v#27| A) #b1))
+                             (not (= (|pipeline_v#26| A) #b10))))
+                   (a!23 (or (= ((_ extract 0 0) (|pipeline_v#28| A)) #b1)
+                             (not (= (|pipeline_v#23| A) #b11))
+                             (not (= (|pipeline_v#24| A) #b1))))
+                   (a!24 (or (not ((_ bit2bool 0) (|pipeline_v#28| A)))
+                             (not (= (|pipeline_v#24| A) #b0))))
+                   (a!25 (not (= ((_ extract 1 1) (|pipeline_v#17| A)) #b1)))
+                   (a!27 (or (not ((_ bit2bool 0) (|pipeline_v#29| A)))
+                             (not (= (|pipeline_v#24| A) #b0))))
+                   (a!28 (or (= ((_ extract 1 1) (|pipeline_v#26| A)) #b1)
+                             (not ((_ bit2bool 1) (|pipeline_v#28| A)))))
+                   (a!29 (or (= ((_ extract 0 0) (|pipeline_v#29| A)) #b1)
+                             (not (= (|pipeline_v#23| A) #b10))
+                             (not (= (|pipeline_v#24| A) #b1))))
+                   (a!30 (or (not ((_ bit2bool 0) (|pipeline_v#33| A)))
+                             (not ((_ bit2bool 0) (|pipeline_v#28| A)))))
+                   (a!31 (or (not ((_ bit2bool 1) (|pipeline_v#36| A)))
+                             (not ((_ bit2bool 1) (|pipeline_v#26| A)))))
+                   (a!32 (not (= ((_ extract 0 0) (|pipeline_v#36| A)) #b1)))
+                   (a!34 (or (= ((_ extract 1 1) (|pipeline_v#26| A)) #b1)
+                             (not ((_ bit2bool 1) (|pipeline_v#29| A)))))
+                   (a!35 (not (= ((_ extract 1 1) (|pipeline_v#29| A)) #b1)))
+                   (a!36 (not (= ((_ extract 1 1) (|pipeline_v#28| A)) #b1))))
+             (let ((a!13 (or a!11
+                             (not (= (|pipeline_v#27| A) #b1))
+                             (= ((_ extract 1 1) (|pipeline_v#33| A)) #b1)
+                             a!12))
+                   (a!18 (or a!17 (not ((_ bit2bool 1) (|pipeline_v#33| A)))))
+                   (a!26 (or a!25
+                             (not (= (|pipeline_v#27| A) #b0))
+                             (not (= (|pipeline_v#24| A) #b1))))
+                   (a!33 (or a!32 (not ((_ bit2bool 0) (|pipeline_v#29| A))))))
+               (= (INV1 A)
+                  (and a!1
+                       a!2
+                       a!3
+                       a!4
+                       a!5
+                       a!6
+                       a!7
+                       a!8
+                       a!9
+                       a!10
+                       a!13
+                       a!14
+                       a!15
+                       a!16
+                       a!18
+                       a!19
+                       a!20
+                       a!21
+                       a!22
+                       a!23
+                       a!24
+                       a!26
+                       a!27
+                       a!28
+                       a!29
+                       a!30
+                       a!31
+                       a!33
+                       a!34
+                       (or a!35 a!36))))))))
+  (and (forall ((A wrapper_s)) (= (INV2 A) false)) a!1))
+
