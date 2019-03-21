@@ -5,8 +5,8 @@ property is specified in `wrapper.v`
 line 87.
 
 The input for Z3 can be
-  1. with `declare-datatype`, or
-  2. without it
+  1. with `declare-datatype` (`wrapper-datatype.smt2`), or
+  2. without it (`wrapper.smt2`)
 
 Interestingly, Z3 could conclude and
 give out an invariant for (1) in a very
