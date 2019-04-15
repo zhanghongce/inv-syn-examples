@@ -127,8 +127,6 @@
 ; init => inv
 (rule (=> (and 
   (|wrapper_n rst| |BI_wrapper_is| |BI___ILA_I_en| |BI___ILA_SO_v| |BI_m1.imp| |BI_m1.v| |BI_clk| |BI_rst|) 
-   
-  
   (|wrapper_t| |BI_wrapper_is| |BI___ILA_I_en| |BI___ILA_SO_v| |BI_m1.imp| |BI_m1.v| |BI_clk| |BI_rst| |I_wrapper_is| |I___ILA_I_en| |I___ILA_SO_v| |I_m1.imp| |I_m1.v| |I_clk| |I_rst|)) 
   (INV |I_wrapper_is| |I___ILA_I_en| |I___ILA_SO_v| |I_m1.imp| |I_m1.v| |I_clk| |I_rst|)))
 
@@ -137,8 +135,6 @@
   (INV |S_wrapper_is| |S___ILA_I_en| |S___ILA_SO_v| |S_m1.imp| |S_m1.v| |S_clk| |S_rst|) 
   (|wrapper_u| |S_wrapper_is| |S___ILA_I_en| |S___ILA_SO_v| |S_m1.imp| |S_m1.v| |S_clk| |S_rst|) 
   (|wrapper_u| |S'_wrapper_is| |S'___ILA_I_en| |S'___ILA_SO_v| |S'_m1.imp| |S'_m1.v| |S'_clk| |S'_rst|) 
-  
-  
   (|wrapper_t| |S_wrapper_is| |S___ILA_I_en| |S___ILA_SO_v| |S_m1.imp| |S_m1.v| |S_clk| |S_rst| |S'_wrapper_is| |S'___ILA_I_en| |S'___ILA_SO_v| |S'_m1.imp| |S'_m1.v| |S'_clk| |S'_rst|)) 
   (INV |S'_wrapper_is| |S'___ILA_I_en| |S'___ILA_SO_v| |S'_m1.imp| |S'_m1.v| |S'_clk| |S'_rst|)))
 
@@ -146,7 +142,6 @@
 (rule (=> (and 
   (INV |S_wrapper_is| |S___ILA_I_en| |S___ILA_SO_v| |S_m1.imp| |S_m1.v| |S_clk| |S_rst|)
   (|wrapper_u| |S_wrapper_is| |S___ILA_I_en| |S___ILA_SO_v| |S_m1.imp| |S_m1.v| |S_clk| |S_rst|) 
-  
   (not (|wrapper_a| |S_wrapper_is| |S___ILA_I_en| |S___ILA_SO_v| |S_m1.imp| |S_m1.v| |S_clk| |S_rst|))) 
   fail))
 
