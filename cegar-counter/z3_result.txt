@@ -1,0 +1,5 @@
+unsat
+(forall ((A (_ BitVec 4)) (B (_ BitVec 4)))
+  (let ((a!1 (or (not (= ((_ extract 0 0) B) #b1)) (not ((_ bit2bool 0) A)))))
+  (let ((a!2 (and (or (= ((_ extract 0 0) B) #b1) ((_ bit2bool 0) A)) a!1)))
+    (= (INV!slice!1 A B) a!2))))
