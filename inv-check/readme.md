@@ -15,5 +15,5 @@ pipeline
   4. -ind-bv: property itself is inductive, state encoded as individual bitvectors
 
 For Z3:  1 and 2 work, 3 and 4 failed (out-of-memory)
-I'm not sure which encoding will work best for freqhorn.
+I'm not sure which encoding will work best for freqhorn, and whether 1 takes longer than 3. The best case is that the guessed properties are inductive but this is not guaranteed.
 
