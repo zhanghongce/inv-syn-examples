@@ -4,6 +4,7 @@ This assumes that we are able to come up with these properties by some way of gu
 
 The property may or may not be inductive.
 
+There is no need to get a proof here, we only need to known if the property holds or not.
 
 For the sub-folders:
 
