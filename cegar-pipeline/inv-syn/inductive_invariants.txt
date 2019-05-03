@@ -1,0 +1,20 @@
+
+(define-fun INV ((|wrapper_is| Bool) (|__ILA_I_inst| (_ BitVec 8)) (|__ILA_SO_r0| (_ BitVec 8)) (|__ILA_SO_r1| (_ BitVec 8)) (|__ILA_SO_r2| (_ BitVec 8)) (|__ILA_SO_r3| (_ BitVec 8)) (|__STARTED__| Bool) (|__START__| Bool) (|__VLG_I_dummy_read_rf| (_ BitVec 2)) (|m1.ex_wb_rd| (_ BitVec 2)) (|m1.ex_wb_reg_wen| (_ BitVec 1)) (|m1.ex_wb_val| (_ BitVec 8)) (|m1.id_ex_op| (_ BitVec 2)) (|m1.id_ex_rd| (_ BitVec 2)) (|m1.id_ex_reg_wen| (_ BitVec 1)) (|m1.id_ex_rs1_val| (_ BitVec 8)) (|m1.id_ex_rs2_val| (_ BitVec 8)) (|m1.reg_0_w_stage| (_ BitVec 2)) (|m1.reg_1_w_stage| (_ BitVec 2)) (|m1.reg_2_w_stage| (_ BitVec 2)) (|m1.reg_3_w_stage| (_ BitVec 2)) (|m1.registers[0]| (_ BitVec 8)) (|m1.registers[1]| (_ BitVec 8)) (|m1.registers[2]| (_ BitVec 8)) (|m1.registers[3]| (_ BitVec 8)) (|clk| Bool) (|rst| Bool)) Bool
+(and
+(=> (= |m1.reg_0_w_stage| #b00) (and (or (= |m1.id_ex_reg_wen| #b0) (not (= |m1.id_ex_rd| #b00))) (or (= |m1.ex_wb_reg_wen| #b0) (not (= |m1.ex_wb_rd| #b00)))))
+(=> (= |m1.reg_1_w_stage| #b00) (and (or (= |m1.id_ex_reg_wen| #b0) (not (= |m1.id_ex_rd| #b01))) (or (= |m1.ex_wb_reg_wen| #b0) (not (= |m1.ex_wb_rd| #b01)))))
+(=> (= |m1.reg_2_w_stage| #b00) (and (or (= |m1.id_ex_reg_wen| #b0) (not (= |m1.id_ex_rd| #b10))) (or (= |m1.ex_wb_reg_wen| #b0) (not (= |m1.ex_wb_rd| #b10)))))
+(=> (= |m1.reg_3_w_stage| #b00) (and (or (= |m1.id_ex_reg_wen| #b0) (not (= |m1.id_ex_rd| #b11))) (or (= |m1.ex_wb_reg_wen| #b0) (not (= |m1.ex_wb_rd| #b11)))))
+(=> (= |m1.reg_0_w_stage| #b10) (and (and (= |m1.id_ex_reg_wen| #b1) (= |m1.id_ex_rd| #b00)) (or (= |m1.ex_wb_reg_wen| #b0) (not (= |m1.ex_wb_rd| #b00)))))
+(=> (= |m1.reg_1_w_stage| #b10) (and (and (= |m1.id_ex_reg_wen| #b1) (= |m1.id_ex_rd| #b01)) (or (= |m1.ex_wb_reg_wen| #b0) (not (= |m1.ex_wb_rd| #b01)))))
+(=> (= |m1.reg_2_w_stage| #b10) (and (and (= |m1.id_ex_reg_wen| #b1) (= |m1.id_ex_rd| #b10)) (or (= |m1.ex_wb_reg_wen| #b0) (not (= |m1.ex_wb_rd| #b10)))))
+(=> (= |m1.reg_3_w_stage| #b10) (and (and (= |m1.id_ex_reg_wen| #b1) (= |m1.id_ex_rd| #b11)) (or (= |m1.ex_wb_reg_wen| #b0) (not (= |m1.ex_wb_rd| #b11)))))
+(=> (= |m1.reg_0_w_stage| #b11) (and (and (= |m1.id_ex_reg_wen| #b1) (= |m1.id_ex_rd| #b00)) (and (= |m1.ex_wb_reg_wen| #b1) (= |m1.ex_wb_rd| #b00))))
+(=> (= |m1.reg_1_w_stage| #b11) (and (and (= |m1.id_ex_reg_wen| #b1) (= |m1.id_ex_rd| #b01)) (and (= |m1.ex_wb_reg_wen| #b1) (= |m1.ex_wb_rd| #b01))))
+(=> (= |m1.reg_2_w_stage| #b11) (and (and (= |m1.id_ex_reg_wen| #b1) (= |m1.id_ex_rd| #b10)) (and (= |m1.ex_wb_reg_wen| #b1) (= |m1.ex_wb_rd| #b10))))
+(=> (= |m1.reg_3_w_stage| #b11) (and (and (= |m1.id_ex_reg_wen| #b1) (= |m1.id_ex_rd| #b11)) (and (= |m1.ex_wb_reg_wen| #b1) (= |m1.ex_wb_rd| #b11))))
+(=> (= |m1.reg_0_w_stage| #b01) (and (or (= |m1.id_ex_reg_wen| #b0) (not (= |m1.id_ex_rd| #b00))) (and (= |m1.ex_wb_reg_wen| #b1) (= |m1.ex_wb_rd| #b00))))
+(=> (= |m1.reg_1_w_stage| #b01) (and (or (= |m1.id_ex_reg_wen| #b0) (not (= |m1.id_ex_rd| #b01))) (and (= |m1.ex_wb_reg_wen| #b1) (= |m1.ex_wb_rd| #b01))))
+(=> (= |m1.reg_2_w_stage| #b01) (and (or (= |m1.id_ex_reg_wen| #b0) (not (= |m1.id_ex_rd| #b10))) (and (= |m1.ex_wb_reg_wen| #b1) (= |m1.ex_wb_rd| #b10))))
+(=> (= |m1.reg_3_w_stage| #b01) (and (or (= |m1.id_ex_reg_wen| #b0) (not (= |m1.id_ex_rd| #b11))) (and (= |m1.ex_wb_reg_wen| #b1) (= |m1.ex_wb_rd| #b11))))
+))
