@@ -1,0 +1,125 @@
+(set-logic BV)
+
+
+(synth-fun INV ((|m1.reg_0_w_stage| (_ BitVec 2)) (|m1.reg_1_w_stage| (_ BitVec 2)) (|m1.reg_2_w_stage| (_ BitVec 2)) (|m1.reg_3_w_stage| (_ BitVec 2)) (|m1.id_ex_reg_wen| (_ BitVec 1)) (|m1.id_ex_rd| (_ BitVec 2)) (|m1.ex_wb_reg_wen| (_ BitVec 1)) (|m1.ex_wb_rd| (_ BitVec 2))) Bool
+  ((Start Bool (IMP))
+
+  (IMP Bool ((=> PreCond PostCond)))
+
+; ---------- controls ------------
+   (PreCond Bool (true
+                  CtrlAtom
+                  CtrlConj))
+   (CtrlConj Bool ((and CtrlAtom CtrlAtom)))
+   (CtrlAtom Bool (CtrlJudgement
+                   (not CtrlJudgement)))   
+    (CtrlJudgement Bool (
+  (= Exp1 Exp1)
+
+  (= Exp2 Exp2)
+))
+
+; ---------- data ------------
+    (PostCond Bool (DataAtom
+                  DataDisj))
+   (DataDisj Bool ((or DataAtom DataAtom)))
+   (DataAtom Bool (DataJudgement
+                   (not DataJudgement)))   
+   (DataJudgement Bool (
+  (= Exp1 Exp1)
+
+  (= Exp2 Exp2)
+))
+
+; ---------- common ------------
+   
+ (Exp1 (_ BitVec 1) ( VarOrVal1
+                      (bvand VarOrVal1 VarOrVal1)
+                      (bvor VarOrVal1 VarOrVal1)
+                      (bvnot VarOrVal1)))
+  
+ (Exp2 (_ BitVec 2) ( VarOrVal2
+                                  (bvnot VarOrVal2)
+))
+
+   
+   (VarOrVal1 (_ BitVec 1) (Var1
+                            Val1))
+
+   (VarOrVal2 (_ BitVec 2) (Var2
+                            Val2))
+
+   
+    (Var1 (_ BitVec 1) (|m1.id_ex_reg_wen| |m1.ex_wb_reg_wen|))
+
+    (Var2 (_ BitVec 2) (|m1.reg_0_w_stage| |m1.reg_1_w_stage| |m1.reg_2_w_stage| |m1.reg_3_w_stage| |m1.id_ex_rd| |m1.ex_wb_rd|))
+
+   
+    (Val1 (_ BitVec 1) (#b0 #b1))
+
+    (Val2 (_ BitVec 2) (#b00 #b01 #b10 #b11))
+))
+  
+(constraint (INV #b00 #b10 #b00 #b01 #b1 #b01 #b1 #b11))
+(constraint (INV #b00 #b01 #b00 #b00 #b0 #b01 #b1 #b01))
+(constraint (INV #b00 #b10 #b00 #b00 #b1 #b01 #b0 #b01))
+(constraint (INV #b00 #b11 #b00 #b00 #b1 #b01 #b1 #b01))
+(constraint (INV #b00 #b01 #b00 #b00 #b0 #b00 #b1 #b01))
+(constraint (INV #b00 #b00 #b10 #b00 #b1 #b10 #b0 #b00))
+(constraint (INV #b00 #b00 #b01 #b10 #b1 #b11 #b1 #b10))
+(constraint (INV #b00 #b00 #b00 #b01 #b0 #b10 #b1 #b11))
+(constraint (INV #b10 #b00 #b00 #b00 #b1 #b00 #b0 #b10))
+(constraint (INV #b11 #b00 #b00 #b00 #b1 #b00 #b1 #b00))
+(constraint (INV #b01 #b10 #b00 #b00 #b1 #b01 #b1 #b00))
+(constraint (INV #b00 #b00 #b10 #b00 #b1 #b10 #b0 #b01))
+(constraint (INV #b00 #b00 #b00 #b11 #b1 #b11 #b1 #b11))
+(constraint (INV #b00 #b00 #b10 #b01 #b1 #b10 #b1 #b11))
+(constraint (INV #b00 #b00 #b01 #b00 #b0 #b11 #b1 #b10))
+(constraint (INV #b10 #b00 #b00 #b00 #b1 #b00 #b0 #b11))
+(constraint (INV #b01 #b00 #b10 #b00 #b1 #b10 #b1 #b00))
+(constraint (INV #b10 #b01 #b00 #b00 #b1 #b00 #b1 #b01))
+(constraint (INV #b00 #b01 #b10 #b00 #b1 #b10 #b1 #b01))
+(constraint (INV #b00 #b00 #b11 #b00 #b1 #b10 #b1 #b10))
+(constraint (INV #b00 #b00 #b01 #b00 #b0 #b00 #b1 #b10))
+(constraint (INV #b00 #b10 #b01 #b00 #b1 #b01 #b1 #b10))
+(constraint (INV #b00 #b01 #b00 #b00 #b0 #b10 #b1 #b01))
+(constraint (INV #b00 #b00 #b10 #b00 #b1 #b10 #b0 #b10))
+(constraint (INV #b01 #b00 #b00 #b00 #b0 #b01 #b1 #b00))
+(constraint (INV #b10 #b00 #b00 #b00 #b1 #b00 #b0 #b01))
+(constraint (INV #b01 #b00 #b00 #b00 #b0 #b10 #b1 #b00))
+(constraint (INV #b00 #b00 #b00 #b00 #b0 #b10 #b0 #b10))
+(constraint (INV #b10 #b00 #b01 #b00 #b1 #b00 #b1 #b10))
+(constraint (INV #b00 #b01 #b00 #b00 #b0 #b11 #b1 #b01))
+(constraint (INV #b00 #b00 #b00 #b00 #b0 #b10 #b0 #b11))
+(constraint (INV #b00 #b00 #b00 #b10 #b1 #b11 #b0 #b10))
+(constraint (INV #b00 #b00 #b01 #b00 #b0 #b01 #b1 #b10))
+(constraint (INV #b00 #b00 #b00 #b00 #b0 #b11 #b0 #b01))
+(constraint (INV #b00 #b10 #b00 #b00 #b1 #b01 #b0 #b11))
+(constraint (INV #b00 #b00 #b00 #b00 #b0 #b11 #b0 #b11))
+(constraint (INV #b00 #b00 #b00 #b10 #b1 #b11 #b0 #b11))
+(constraint (INV #b00 #b00 #b00 #b01 #b0 #b01 #b1 #b11))
+(constraint (INV #b00 #b00 #b00 #b00 #b0 #b01 #b0 #b01))
+(constraint (INV #b00 #b00 #b00 #b00 #b0 #b00 #b0 #b01))
+(constraint (INV #b00 #b10 #b00 #b00 #b1 #b01 #b0 #b00))
+(constraint (INV #b00 #b01 #b00 #b10 #b1 #b11 #b1 #b01))
+(constraint (INV #b00 #b00 #b00 #b01 #b0 #b11 #b1 #b11))
+(constraint (INV #b01 #b00 #b00 #b10 #b1 #b11 #b1 #b00))
+(constraint (INV #b00 #b00 #b00 #b01 #b0 #b00 #b1 #b11))
+(constraint (INV #b00 #b00 #b00 #b00 #b0 #b00 #b0 #b00))
+(constraint (INV #b00 #b00 #b00 #b10 #b1 #b11 #b0 #b00))
+(constraint (INV #b10 #b00 #b00 #b01 #b1 #b00 #b1 #b11))
+(constraint (INV #b00 #b00 #b10 #b00 #b1 #b10 #b0 #b11))
+(constraint (INV #b00 #b00 #b01 #b00 #b0 #b10 #b1 #b10))
+(constraint (INV #b10 #b00 #b00 #b00 #b1 #b00 #b0 #b00))
+(constraint (INV #b01 #b00 #b00 #b00 #b0 #b00 #b1 #b00))
+(constraint (INV #b01 #b00 #b00 #b00 #b0 #b11 #b1 #b00))
+(constraint (INV #b00 #b00 #b00 #b00 #b0 #b00 #b0 #b11))
+(constraint (INV #b00 #b00 #b00 #b10 #b1 #b11 #b0 #b01))
+(constraint (INV #b00 #b00 #b00 #b00 #b0 #b10 #b0 #b01))
+(constraint (INV #b00 #b10 #b00 #b00 #b1 #b01 #b0 #b10))
+(constraint (INV #b00 #b00 #b00 #b00 #b0 #b01 #b0 #b10))
+(constraint (INV #b00 #b00 #b00 #b00 #b0 #b00 #b0 #b10))
+(constraint (INV #b00 #b00 #b00 #b00 #b0 #b10 #b0 #b00))
+(constraint (INV #b00 #b00 #b00 #b00 #b0 #b01 #b0 #b11))
+(constraint (not (INV #b10 #b00 #b00 #b01 #b1 #b00 #b1 #b00)))
+(check-synth)
